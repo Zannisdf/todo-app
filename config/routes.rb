@@ -3,5 +3,6 @@ Rails.application.routes.draw do
   post 'todos', to: 'todos#create'
   get 'todos/new', as: 'new_todo'
   get 'todos/:id', to: 'todos#show', as: 'todo'
+  get 'todos/:id/edit', to: 'todos#edit', as: 'edit_todo'
   root 'todos#index'
 end

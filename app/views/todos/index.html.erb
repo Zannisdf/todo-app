@@ -13,6 +13,7 @@
     <li class="list-group-item">
       <p><%= todo.description %></p>
       <%= link_to 'Show', todo_path(todo) %>
+      <%= link_to 'Edit', edit_todo_path(todo) %>
     </li>
   <% end %>
 </ul>
