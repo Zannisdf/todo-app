@@ -15,6 +15,7 @@
       <%= link_to 'Show', todo_path(todo) %>
       <%= link_to 'Edit', edit_todo_path(todo) %>
       <%= link_to 'Delete', todo_path(todo), method: :delete, data: {confirm: 'Are you sure?'} %>
+      <%= link_to 'Mark as completed', complete_todo_path(todo), method: :patch %>
     </li>
   <% end %>
 </ul>

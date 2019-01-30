@@ -39,6 +39,12 @@ class TodosController < ApplicationController
     redirect_to root_path, notice: 'To-do deleted.'
   end
 
+  def complete
+    @todo = Todo.find(params[:id])
+    @todo.completed = true
+    @todo.save
+  end
+
   private
 
   def todo_params
