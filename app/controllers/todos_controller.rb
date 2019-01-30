@@ -1,6 +1,7 @@
 class TodosController < ApplicationController
+  before_action :set_todo, except: %i[index new create list]
   def index
-    @todos = Todo.all
+    @todos = Todo.order(:id)
   end
 
   def new
@@ -16,31 +17,24 @@ class TodosController < ApplicationController
     end
   end
 
-  def show
-    @todo = Todo.find(params[:id])
-  end
+  def show; end
 
-  def edit
-    @todo = Todo.find(params[:id])
-  end
+  def edit; end
 
   def update
-    todo = Todo.find(params[:id])
-    if todo.update(todo_params)
+    if @todo.update(todo_params)
       redirect_to root_path, notice: 'To-do updated.'
     else
-      redirect_to edit_todo_path(todo), alert: 'Something went wrong, please try again.'
+      redirect_to edit_todo_path(@todo), alert: 'Something went wrong, please try again.'
     end
   end
 
   def destroy
-    todo = Todo.find(params[:id])
-    todo.destroy
+    @todo.destroy
     redirect_to root_path, notice: 'To-do deleted.'
   end
 
   def complete
-    @todo = Todo.find(params[:id])
     @todo.completed = true
     @todo.save
   end
@@ -54,5 +48,9 @@ class TodosController < ApplicationController
 
   def todo_params
     params.require(:todo).permit(:description)
+  end
+
+  def set_todo
+    @todo = Todo.find(params[:id])
   end
 end
