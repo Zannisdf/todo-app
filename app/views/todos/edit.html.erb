@@ -1,5 +1,11 @@
 <h1>Edit To Do</h1>
 
+<% if alert.present? %>
+  <div class="alert">
+    <p><%= alert %></p>
+  </div>
+<% end %>
+
 <%= form_with(model:@todo, local:true) do |f| %>
   <%= f.label :description %>
   <%= f.text_field :description %>

@@ -24,6 +24,15 @@ class TodosController < ApplicationController
     @todo = Todo.find(params[:id])
   end
 
+  def update
+    todo = Todo.find(params[:id])
+    if todo.update(todo_params)
+      redirect_to root_path, notice: 'To-do updated.'
+    else
+      redirect_to edit_todo_path(todo), alert: 'Something went wrong, please try again.'
+    end
+  end
+
   private
 
   def todo_params
