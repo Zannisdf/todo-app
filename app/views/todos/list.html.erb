@@ -3,8 +3,9 @@
 <div class="list-box">
   <div class="row">
     <div class="col-6">
+      <h2>Incomplete</h2>
       <ul class="list-group">
-        <% @completed_todos.each do |todo| %>
+        <% @not_completed_todos.each do |todo| %>
           <li class="list-group-item">
             <%= todo.description %>
           </li>
@@ -12,8 +13,9 @@
       </ul>
     </div>
     <div class="col-6">
+      <h2>Complete</h2>
       <ul class="list-group">
-        <% @not_completed_todos.each do |todo| %>
+        <% @completed_todos.each do |todo| %>
           <li class="list-group-item">
             <%= todo.description %>
           </li>

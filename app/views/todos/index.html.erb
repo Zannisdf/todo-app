@@ -8,12 +8,14 @@
 
 <ul class="list-group">
   <% @todos.each do |todo| %>
-    <li class="list-group-item">
+    <li class="list-group-item d-md-flex justify-content-between">
       <p><%= todo.description %></p>
-      <%= link_to 'Show', todo_path(todo) %>
-      <%= link_to 'Edit', edit_todo_path(todo) %>
-      <%= link_to 'Delete', todo_path(todo), method: :delete, data: {confirm: 'Are you sure?'} %>
-      <%= link_to 'Mark as completed', complete_todo_path(todo), method: :patch %>
+      <div class="buttons">
+        <%= link_to 'Show', todo_path(todo), class:'btn btn-info' %>
+        <%= link_to 'Edit', edit_todo_path(todo), class:'btn btn-secondary' %>
+        <%= link_to 'Delete', todo_path(todo), method: :delete, data: {confirm: 'Are you sure?'}, class:'btn btn-danger' %>
+        <%= link_to 'Completed?', complete_todo_path(todo), method: :patch, class: 'btn btn-success' %>
+      </div>
     </li>
   <% end %>
 </ul>
