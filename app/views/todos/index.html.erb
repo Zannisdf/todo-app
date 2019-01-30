@@ -14,6 +14,7 @@
       <p><%= todo.description %></p>
       <%= link_to 'Show', todo_path(todo) %>
       <%= link_to 'Edit', edit_todo_path(todo) %>
+      <%= link_to 'Delete', todo_path(todo), method: :delete, data: {confirm: 'Are you sure?'} %>
     </li>
   <% end %>
 </ul>
