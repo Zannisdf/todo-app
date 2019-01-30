@@ -1,0 +1,24 @@
+<h1>To Do list</h1>
+
+<div class="list-box">
+  <div class="row">
+    <div class="col-6">
+      <ul class="list-group">
+        <% @completed_todos.each do |todo| %>
+          <li class="list-group-item">
+            <%= todo.description %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="col-6">
+      <ul class="list-group">
+        <% @not_completed_todos.each do |todo| %>
+          <li class="list-group-item">
+            <%= todo.description %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

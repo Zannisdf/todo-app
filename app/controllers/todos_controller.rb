@@ -45,6 +45,11 @@ class TodosController < ApplicationController
     @todo.save
   end
 
+  def list
+    @completed_todos = Todo.where(completed: true)
+    @not_completed_todos = Todo.where(completed: false)
+  end
+
   private
 
   def todo_params
