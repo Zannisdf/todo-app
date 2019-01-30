@@ -1,0 +1,9 @@
+<h1>Index</h1>
+
+<ul class="list-group">
+  <% @todos.each do |todo| %>
+    <li class="list-group-item">
+      <%= todo.description %>
+    </li>
+  <% end %>
+</ul>
