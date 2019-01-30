@@ -11,7 +11,8 @@
 <ul class="list-group">
   <% @todos.each do |todo| %>
     <li class="list-group-item">
-      <%= todo.description %>
+      <p><%= todo.description %></p>
+      <%= link_to 'Show', todo_path(todo) %>
     </li>
   <% end %>
 </ul>
